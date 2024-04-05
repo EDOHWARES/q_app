@@ -4,6 +4,7 @@ import './index.css'
 
 import Root from "./components/Login";
 import { QuizApp } from './components/QuizApp.jsx';
+import ErrorPage from './components/ErrorPage.jsx';
 
 import {
   createBrowserRouter,
@@ -13,11 +14,15 @@ import {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />
+    element: <Root />,
   },
   {
     path: "quiz",
     element: <QuizApp />
+  },
+  {
+    path: "*",
+    element: <ErrorPage />
   }
 ])
 
