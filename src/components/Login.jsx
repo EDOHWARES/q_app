@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 const Login = () => {
 
-  const [name, setName] = useState('')
-  const [showError, setShowError] = useState(false)
+  // const history = useHistory();
+  const [name, setName] = useState('');
+  const [showError, setShowError] = useState(false);
+
+  let navigate = useNavigate();
 
   const handleChange = (e) => {
     setName(e.target.value)
@@ -16,6 +22,9 @@ const Login = () => {
       setTimeout(() => {
         setShowError(false)
       }, 5000)
+    } else {
+      setName('')
+      navigate('/quiz')
     }
   }
 
