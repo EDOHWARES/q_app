@@ -1,9 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+import './index.css';
+import './App.css';
+
+import { AuthProvider } from './components/AuthContext.jsx';
 
 import Root from "./components/Login";
 import { QuizApp } from './components/QuizApp.jsx';
+import ChoicePage from './components/ChoicePage.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 
 import {
@@ -17,17 +21,23 @@ const router = createBrowserRouter([
     element: <Root />,
   },
   {
-    path: "quiz",
+    path: "quiz/:id",
     element: <QuizApp />
   },
   {
     path: "*",
     element: <ErrorPage />
+  },
+  {
+    path: 'choices',
+    element: <ChoicePage />
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

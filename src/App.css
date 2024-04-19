@@ -3,3 +3,13 @@
   margin: 0;
   padding: 0;
 }
+
+.correct {
+  background-color: #dffff2;
+  border: 1px solid #00d397;
+}
+
+.wrong {
+  background-color: #ffebeb;
+  border: 1px solid #ff4a4a;
+}
